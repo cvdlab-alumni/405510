@@ -1,0 +1,7 @@
+/**
+ * @author goggio
+ */
+//exercise6
+
+v = [[][][][]]
+function lar_to_obj(v,fv)

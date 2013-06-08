@@ -1,0 +1,60 @@
+/**
+ * @author goggio
+ */
+//exercise1
+//funzioni ausiliarie
+var domain = PROD1x1([INTERVALS(1)(40),INTERVALS(1)(40)]);
+var normalize = function(rgb){
+    return [rgb[0]/255,rgb[1]/255,rgb[2]/255];
+    }
+    
+function zeta(x,y){
+	var filterResult = punti.filter(function(item, index, array){
+
+ 		return ((item[0]===x)&&(item[1]===y));
+		});
+	return filterResult[0][2];
+	};  
+	
+function mediaz(x,y){
+	var z1 = zeta(x,y);
+	var z2 = zeta(x-1,y-1);
+	var z3 = zeta(x+1,y+1);
+	var z4 = zeta(x+1,y-1);
+	var z5 = zeta(x-1,y+1);
+	var z6 = zeta(x,y+1);
+	var z7 = zeta(x,y-1);
+	var z8 = zeta(x-1,y);
+	var z9 = zeta(x+1,y);
+	var z10 = zeta(x+2,y);
+	var z11 = zeta(x-2,y);
+	var z12 = zeta(x,y+2);
+	var z13 = zeta(x,y-2);
+	var media = (z1+z2+z3+z4+z5+z6+z7+z8+z9+z10+z11+z12+z13)/13;
+	return media+0.5;
+	
+}	 	   
+
+//variabili globali
+var punti = [];
+var curve = [];
+
+//terreno
+function montagne(zetaMax){
+	var ci = BEZIER(S0)([[0,0,0],[10,0,0],[20,0,0]]);
+	
+    curve.push(ci);
+    for(i=0;i<=20;i=i+1){
+		var c = BEZIER(S0)([[0,i,0],[0.5,i,Math.round(zetaMax*Math.random())],[1,i,Math.round(zetaMax*Math.random())],[1.5,i,Math.round(zetaMax*Math.random())],[2,i,Math.round(zetaMax*Math.random())],[2.5,i,Math.round(zetaMax*Math.random())],[3,i,Math.round(zetaMax*Math.random())],[3.5,i,Math.round(zetaMax*Math.random())],[4,i,Math.round(zetaMax*Math.random())],[4.5,i,Math.round(zetaMax*Math.random())],[5,i,Math.round(zetaMax*Math.random())],[5.5,i,Math.round(zetaMax*Math.random())],[6,i,Math.round(zetaMax*Math.random())],[6.5,i,Math.round(zetaMax*Math.random())],[7,i,Math.round(zetaMax*Math.random())],[7.5,i,Math.round(zetaMax*Math.random())],[8,i,Math.round(zetaMax*Math.random())],[8.5,i,Math.round(zetaMax*Math.random())],[9,i,Math.round(zetaMax*Math.random())],[9.5,i,Math.round(zetaMax*Math.random())],[10,i,Math.round(zetaMax*Math.random())],[10.5,i,Math.round(zetaMax*Math.random())],[11,i,Math.round(zetaMax*Math.random())],[11.5,i,Math.round(zetaMax*Math.random())],[12,i,Math.round(zetaMax*Math.random())],[12.5,i,Math.round(zetaMax*Math.random())],[13,i,Math.round(zetaMax*Math.random())],[13.5,i,Math.round(zetaMax*Math.random())],[14,i,Math.round(zetaMax*Math.random())],[14.5,i,Math.round(zetaMax*Math.random())],[15,i,Math.round(zetaMax*Math.random())],[15.5,i,Math.round(zetaMax*Math.random())],[16,i,Math.round(zetaMax*Math.random())],[16.5,i,Math.round(zetaMax*Math.random())],[17,i,Math.round(zetaMax*Math.random())],[17.5,i,Math.round(zetaMax*Math.random())],[18,i,Math.round(zetaMax*Math.random())],[18.5,i,Math.round(zetaMax*Math.random())],[19,i,Math.round(zetaMax*Math.random())],[19.5,i,Math.round(zetaMax*Math.random())],[20,i,0]]);
+		curve.push(c);  
+		punti.push([0,i,0],[0.5,i,Math.round(zetaMax*Math.random())],[1,i,Math.round(zetaMax*Math.random())],[1.5,i,Math.round(zetaMax*Math.random())],[2,i,Math.round(zetaMax*Math.random())],[2.5,i,Math.round(zetaMax*Math.random())],[3,i,Math.round(zetaMax*Math.random())],[3.5,i,Math.round(zetaMax*Math.random())],[4,i,Math.round(zetaMax*Math.random())],[4.5,i,Math.round(zetaMax*Math.random())],[5,i,Math.round(zetaMax*Math.random())],[5.5,i,Math.round(zetaMax*Math.random())],[6,i,Math.round(zetaMax*Math.random())],[6.5,i,Math.round(zetaMax*Math.random())],[7,i,Math.round(zetaMax*Math.random())],[7.5,i,Math.round(zetaMax*Math.random())],[8,i,Math.round(zetaMax*Math.random())],[8.5,i,Math.round(zetaMax*Math.random())],[9,i,Math.round(zetaMax*Math.random())],[9.5,i,Math.round(zetaMax*Math.random())],[10,i,Math.round(zetaMax*Math.random())],[10.5,i,Math.round(zetaMax*Math.random())],[11,i,Math.round(zetaMax*Math.random())],[11.5,i,Math.round(zetaMax*Math.random())],[12,i,Math.round(zetaMax*Math.random())],[12.5,i,Math.round(zetaMax*Math.random())],[13,i,Math.round(zetaMax*Math.random())],[13.5,i,Math.round(zetaMax*Math.random())],[14,i,Math.round(zetaMax*Math.random())],[14.5,i,Math.round(zetaMax*Math.random())],[15,i,Math.round(zetaMax*Math.random())],[15.5,i,Math.round(zetaMax*Math.random())],[16,i,Math.round(zetaMax*Math.random())],[16.5,i,Math.round(zetaMax*Math.random())],[17,i,Math.round(zetaMax*Math.random())],[17.5,i,Math.round(zetaMax*Math.random())],[18,i,Math.round(zetaMax*Math.random())],[18.5,i,Math.round(zetaMax*Math.random())],[19,i,Math.round(zetaMax*Math.random())],[19.5,i,Math.round(zetaMax*Math.random())],[20,i,0]);
+    }
+    var cf = BEZIER(S0)([[0,20,0],[10,20,0],[20,20,0]]);
+    curve.push(cf);
+    return curve;
+}
+var curvaOut = BEZIER(S1)(montagne(10))
+var terra = normalize([189,183,107]);
+var terreno = COLOR(terra)(MAP(curvaOut)(domain));
+
+var model = STRUCT([terreno]);
