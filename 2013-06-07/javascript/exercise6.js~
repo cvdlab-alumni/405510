@@ -3,5 +3,14 @@
  */
 //exercise6
 
+//vertici del modello
 v = [[][][][]]
-function lar_to_obj(v,fv)
+
+//matrice compatta delle facce 2d
+fv = [[][][][][][]]
+
+
+function lar_to_obj(v,fv){
+
+return 
+}
