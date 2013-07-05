@@ -5,24 +5,24 @@ domain1 = INTERVALS ( 1) ( 36 )
 
 #volante
 def razze (r) :
-	n = PI/2
-	raggio = R([1,2])(n)(R([1,3])(PI/2)(CYLINDER([r,2.8])(32)))
-	return STRUCT(NN(3)([raggio,R([1,2])(-n)]))
+n = PI/2
+raggio = R([1,2])(n)(R([1,3])(PI/2)(CYLINDER([r,2.8])(32)))
+return STRUCT(NN(3)([raggio,R([1,2])(-n)]))
 
 def volante(G, g) :
-	domain = INSR ( PROD ) ( [ INTERVALS ( 2*PI ) ( 36 ), INTERVALS ( 2*PI ) ( 72 ) ] )
-	def torus (R, r) :
-		def torusb (v) :
-			a = v[0]
-			b = v[1]
-			u = (r * COS(a) + R) * COS(b)
-			v = (r * COS(a) + R) * SIN(b)
-			w = (r * SIN(a))
-			return [u,v,w]
-		return torusb
-	mapping = torus(G, g)
-	model = MAP(mapping)(domain)
-	return model
+domain = INSR ( PROD ) ( [ INTERVALS ( 2*PI ) ( 36 ), INTERVALS ( 2*PI ) ( 72 ) ] )
+def torus (R, r) :
+def torusb (v) :
+a = v[0]
+b = v[1]
+u = (r * COS(a) + R) * COS(b)
+v = (r * COS(a) + R) * SIN(b)
+w = (r * SIN(a))
+return [u,v,w]
+return torusb
+mapping = torus(G, g)
+model = MAP(mapping)(domain)
+return model
 
 center = COLOR([1,0,0])(T(3)(-0.25)(CYLINDER([0.7,0.5])(32)))
 
